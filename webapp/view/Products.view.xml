@@ -1,0 +1,113 @@
+<mvc:View controllerName="com.ui5ProductsManagement.controller.Products" height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants"
+	xmlns:t="sap.ui.table">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="true" showFooter="true">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Products"/>
+				</f:heading>
+				<f:actions>
+					<ToolbarSpacer/>
+					<Button text="Create Product" icon="sap-icon://add-product" press="onCreate" type="Transparent"/>
+					<Button text="Chart View" icon="sap-icon://switch-views" press="showChart" type="Emphasized"/>
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<!-- DynamicPage Header -->
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<f:content>
+					<fb:FilterBar id="filterbar" reset="onReset" search="onFilterSearch" useToolbar="false" showGoOnFB="true">
+						<fb:filterItems >
+							<fb:FilterItem name="A" label="Product ID">
+								<fb:control>
+									<Input id="idPrdId"/>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="B" label="Product Name">
+								<fb:control>
+									<Input id="idPrdName"/>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="C" label="Product Description">
+								<fb:control>
+									<Input id="idPrdDesc"/>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="D" label="Product Price" visibleInFilterBar="false">
+								<fb:control>
+									<Input id="idPrdPrice"/>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="E" label="Product Release Date">
+								<fb:control>
+									<DatePicker id="idPrdRelDate" placeholder="Select date" displayFormat="MM-dd-yyyy" valueFormat="MM-dd-yyyy" class="sapUiSmallMarginBottom"/>
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+					</fb:FilterBar>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<!-- DynamicPage Content -->
+		<f:content>
+			<Table id="idPrdList" inset="false" mode="SingleSelectMaster" items="{/ProductList}">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="Search Products By Product ID, Name or Description" liveChange="onLiveSearch" width="50%"/>
+						<ToolbarSpacer/>
+						<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Product ID"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Product Name"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Product Description"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Product Price"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Product Rating"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Product Release Date"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Discontinued Date"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<Text text="{ID}"/>
+							<Text text="{Name}"/>
+							<Text text="{Description}"/>
+							<Text text="{Price}"/>
+							<Text text="{Rating}"/>
+							<Text text="{ReleaseDate}"/>
+							<Text text="{DiscontinuedDate}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+		<!-- DynamicPage Footer -->
+		<f:footer>
+			<OverflowToolbar id="idMasterActions">
+				<!-- Process Flow Button commented due to Northwind Implementation-->
+				<!--<Button class="whiteButton" text="Show Process Flow" icon="sap-icon://process" press="openProcessFlow" type="Transparent"/>-->
+				<ToolbarSpacer/>
+				<Button class="whiteButton" text="Update Product" icon="sap-icon://edit" press="onUpdate" type="Transparent"/>
+				<Button class="whiteButton" text="Delete Product" icon="sap-icon://delete" press="onDelete" type="Transparent"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

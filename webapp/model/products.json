@@ -1,0 +1,31 @@
+{
+	"headerExpanded": true,
+	"ProductList": [{
+		"id": "p111111",
+		"name": "EverGlow Single",
+		"type": "Lanterns",
+		"stockQty": "224",
+		"prdStatus": "Active",
+		"wareTransfStatus": "In Progress",
+		"packingStatus": "Not Started",
+		"createdDate": "05/05/2019"
+	}, {
+		"id": "p111112",
+		"name": "Husky Rope 50",
+		"type": "Rope",
+		"stockQty": "924",
+		"prdStatus": "Blocked",
+		"wareTransfStatus": "Not Started",
+		"packingStatus": "Not Started",
+		"createdDate": "06/05/2019"
+	}, {
+		"id": "p111113",
+		"name": "Granite Hammer",
+		"type": "Tools",
+		"stockQty": "574",
+		"prdStatus": "Active",
+		"wareTransfStatus": "Completed",
+		"packingStatus": "Completed",
+		"createdDate": "08/04/2019"
+	}]
+}

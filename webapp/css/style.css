@@ -1,0 +1,12 @@
+/* custom CSS for Products Management */
+
+.whiteButton .sapUiIcon {
+    color: #ffffff !important;
+    text-shadow: 0 0 0 #ffffff;
+}
+
+.whiteButton .sapMBtnContent {
+	color: #ffffff !important;
+	text-shadow: 0 0 0 #ffffff;
+}
+

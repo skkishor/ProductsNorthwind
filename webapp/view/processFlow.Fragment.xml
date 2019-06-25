@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<m:Dialog id="processFlowDialog" title="Product Process Flow" contentHeight="400px" contentWidth="750px" stretch="false"
+		verticalScrolling="false" resizable="true" draggable="true">
+		<m:customHeader>
+			<m:OverflowToolbar>
+				<m:Button tooltip="Zoom In" icon="sap-icon://add" press="onZoomIn" type="Transparent"/>
+				<m:Button tooltip="Zoom Out" icon="sap-icon://less" press="onZoomOut" type="Transparent"/>
+				<m:ToolbarSpacer/>
+				<m:Title text="Product Process Flow"/>
+				<m:ToolbarSpacer/>
+				<m:Button tooltip="Close" icon="sap-icon://decline" press="closeProcessFlowDialog" type="Transparent"/>
+			</m:OverflowToolbar>
+		</m:customHeader>
+		<m:content>
+			<m:Panel>
+				<m:FlexBox alignItems="Center" justifyContent="Center">
+					<m:items>
+						<ProcessFlow id="processflow" scrollable="false" nodePress="onNodePress" nodes="{processFlow>/nodes}" lanes="{processFlow>/lanes}">
+							<nodes>
+								<ProcessFlowNode laneId="{processFlow>lane}" nodeId="{processFlow>id}" title="{processFlow>title}"
+									titleAbbreviation="{processFlow>titleAbbreviation}" children="{processFlow>children}" state="{processFlow>state}"
+									stateText="{processFlow>stateText}" texts="{processFlow>texts}" focused="{processFlow>focused}"/>
+							</nodes>
+							<lanes>
+								<ProcessFlowLaneHeader laneId="{processFlow>id}" iconSrc="{processFlow>icon}" text="{processFlow>label}" position="{processFlow>position}"/>
+							</lanes>
+						</ProcessFlow>
+					</m:items>
+				</m:FlexBox>
+			</m:Panel>
+		</m:content>
+	</m:Dialog>
+</core:FragmentDefinition>

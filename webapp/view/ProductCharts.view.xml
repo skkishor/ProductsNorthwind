@@ -1,0 +1,77 @@
+<mvc:View controllerName="com.ui5ProductsManagement.controller.ProductCharts" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:chart="sap.suite.ui.commons"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data">
+	<App>
+		<pages>
+			<Page title="Product Charts" showNavButton="true" navButtonPress="onNavButtonPress">
+				<content>
+					<chart:ChartContainer id="chartContainer" showFullScreen="true" showZoom="false" class="sapUiResponsiveContentPadding"
+						showPersonalization="false" autoAdjustHeight="true" title="Products Price">
+						<chart:content>
+							<chart:ChartContainerContent icon="sap-icon://pie-chart">
+								<chart:content>
+									<viz:VizFrame id="idPieVizFrame" height='100%' width="100%" vizType='pie'>
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{/ProductList}">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition name="Product" value="{Name}"/>
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition name="Price" value="{Price}"/>
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="size" type="Measure" values="Price"/>
+											<viz.feeds:FeedItem uid="color" type="Dimension" values="Product"/>
+										</viz:feeds>
+									</viz:VizFrame>
+								</chart:content>
+							</chart:ChartContainerContent>
+							<chart:ChartContainerContent icon="sap-icon://donut-chart">
+								<chart:content>
+									<viz:VizFrame id="idDonutVizFrame" height='100%' width="100%" vizType='donut'>
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{/ProductList}">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition name="Product" value="{Name}"/>
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition name="Price" value="{Price}"/>
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="size" type="Measure" values="Price"/>
+											<viz.feeds:FeedItem uid="color" type="Dimension" values="Product"/>
+										</viz:feeds>
+									</viz:VizFrame>
+								</chart:content>
+							</chart:ChartContainerContent>
+							<chart:ChartContainerContent icon="sap-icon://full-stacked-column-chart">
+								<chart:content>
+									<viz:VizFrame id="idColumnVizFrame" height='100%' width="100%" vizType='column'>
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{/ProductList}">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition name="Product" value="{Name}"/>
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition name="Price" value="{Price}"/>
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Price"/>
+											<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Product"/>
+										</viz:feeds>
+									</viz:VizFrame>
+								</chart:content>
+							</chart:ChartContainerContent>
+						</chart:content>
+					</chart:ChartContainer>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

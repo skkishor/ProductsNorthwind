@@ -1,0 +1,9 @@
+<View xmlns="sap.m">
+	<App id="rootControl">
+		<pages>
+			<Page title="Title">
+				<content></content>
+			</Page>
+		</pages>
+	</App>
+</View>

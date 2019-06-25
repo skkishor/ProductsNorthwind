@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog id="createPrdDialog" title="Create Product" contentHeight="470px" contentWidth="650px" stretch="false" verticalScrolling="false"
+		resizable="true" draggable="true">
+		<customHeader>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Title text="Create Product"/>
+				<ToolbarSpacer/>
+				<Button tooltip="Close" icon="sap-icon://decline" press="closCreateeDialog" type="Transparent"/>
+			</OverflowToolbar>
+		</customHeader>
+		<MessageStrip text="Please fill all the product fields and click on 'Create' button" showIcon="true" showCloseButton="false"
+			class="sapUiTinyMargin"></MessageStrip>
+		<content>
+			<f:SimpleForm id="idCreatePrdForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="5" labelSpanM="5"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="3" emptySpanL="3" emptySpanM="3" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+					<Label text="Product ID"/>
+					<Input id="idCPrdID" value=""/>
+					<Label text="Product Name"/>
+					<Input id="idCPrdName" value=""/>
+					<Label text="Product Description"/>
+					<Input id="idCPrdDesc" value=""/>
+					<Label text="Product Price"/>
+					<Input id="idCPrdPrice" value=""/>
+					<Label text="Product Rating"/>
+					<Input id="idCPrdRating" value=""/>
+					<Label text="Product Release Date"/>
+					<DatePicker id="idCPrdRelDate" placeholder="Select date" displayFormat="MM-dd-yyyy" valueFormat="yyyy-MM-ddTHH:mm:ss"
+						class="sapUiSmallMarginBottom"/>
+					<Label text="Discontinued Date"/>
+					<DatePicker id="idCDiscDate" placeholder="Select date" displayFormat="MM-dd-yyyy" valueFormat="yyyy-MM-ddTHH:mm:ss"
+						class="sapUiSmallMarginBottom"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<endButton>
+			<Button text="Create" class="whiteButton" icon="sap-icon://save" press="createProduct" id="idOkCreatePrd" type="Transparent"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

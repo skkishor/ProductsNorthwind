@@ -1,0 +1,119 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "com.ui5ProductsManagement",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.ui5ProductsManagement.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.collaboration": {},
+				"sap.m": {},
+				"sap.ui.comp": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.uxap": {},
+				"sap.viz": {
+					"minVersion": ""
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.ui5ProductsManagement.i18n.i18n"
+				}
+			},
+			"products": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "./model/products.json"
+			},
+			"processFlow": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "./model/processFlow.json"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.ui5ProductsManagement.view",
+				"controlId": "rootControl",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "Products",
+					"target": "Products"
+				},
+				{
+					"pattern": "ProductCharts",
+					"name": "ProductCharts",
+					"target": "ProductCharts"
+				}
+			],
+			"targets": {
+				"Products": {
+					"viewID": "Products",
+					"viewName": "Products",
+					"transition": "flip"
+				},
+				"ProductCharts": {
+					"viewId": "ProductCharts",
+					"viewName": "ProductCharts",
+					"transition": "flip"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	}
+}
